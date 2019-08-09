@@ -46,6 +46,7 @@ def apply_clearance(cart)
     end
   end
   cart
+  #binding.pry
 end
 
 def checkout(cart, coupons)
@@ -58,4 +59,5 @@ def checkout(cart, coupons)
     total += cart_w_discounts[x][:price]*cart_w_discounts[x][:count]
   end
   total > 100.00 ? (total * 0.90).round : total
+  #binding.pry
 end
