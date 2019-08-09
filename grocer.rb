@@ -49,5 +49,13 @@ def apply_clearance(cart)
 end
 
 def checkout(cart, coupons)
-#binding.pry
+  new_cart = new_cart_two(cart)
+  cart_w_coupons = apply_coupons(new_cart, coupons)
+  cart_w_discounts = apply_clearance(cart_w_coupons)
+
+  total = 0.0
+  cart_with_discounts_applied.keys.each do |x|
+    total += cart_w_discounts[item][:price]*cart_w_discounts[x][:count]
+  end
+  total > 100.00 ? (total * 0.90).round : total
 end
